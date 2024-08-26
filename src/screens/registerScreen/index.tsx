@@ -91,9 +91,12 @@ export const RegisterScreen = () => {
               <Text style={styles.label}>Phone number</Text>
               <TextInput
                 style={styles.input}
-                placeholder="Enter phone number"
+                placeholder="+33 222 111 2222"
                 onChangeText={(text) => {
-                  if (!text.startsWith("+")) {
+                  if (
+                    !text.startsWith("+") &&
+                    values.phoneNumber.length === 0
+                  ) {
                     handleChange("phoneNumber")(`+${text}`);
                   } else {
                     handleChange("phoneNumber")(text);

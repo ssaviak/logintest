@@ -48,7 +48,10 @@ export const LoginScreen = () => {
                 style={styles.input}
                 placeholder="+33 222 111 2222"
                 onChangeText={(text) => {
-                  if (!text.startsWith("+")) {
+                  if (
+                    !text.startsWith("+") &&
+                    values.phoneNumber.length === 0
+                  ) {
                     handleChange("phoneNumber")(`+${text}`);
                   } else {
                     handleChange("phoneNumber")(text);
