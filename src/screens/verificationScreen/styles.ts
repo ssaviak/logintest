@@ -11,14 +11,12 @@ const styles = StyleSheet.create({
   cell: {
     width: 52.5,
     height: 64,
-    lineHeight: 48,
     fontSize: 40,
     borderWidth: 1,
     borderRadius: 8,
     borderColor: "#EEE8F0",
     textAlign: "center",
-    alignContent: "center",
-    alignItems: "center",
+    lineHeight: 64,
   },
   codeFieldRoot: {},
   codeContainer: {
