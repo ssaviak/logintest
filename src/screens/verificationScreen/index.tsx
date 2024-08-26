@@ -66,10 +66,6 @@ export const VerificationScreen: React.FC<VerificationScreenProps> = ({
             rootStyle={styles.codeFieldRoot}
             keyboardType="number-pad"
             textContentType="oneTimeCode"
-            autoComplete={Platform.select({
-              android: "sms-otp",
-              default: "one-time-code",
-            })}
             testID="my-code-input"
             renderCell={({ index, symbol, isFocused }) => (
               <Text

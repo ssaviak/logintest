@@ -2,9 +2,10 @@ import { View, Text, Image, StyleSheet } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { COLORS } from "@/constants/colors";
 import { Button } from "@/components";
+import { WelcomeScreenNavigationProp } from "./types";
 
 export const WelcomeScreen = () => {
-  const navigation = useNavigation();
+  const navigation = useNavigation<WelcomeScreenNavigationProp>();
 
   return (
     <View style={styles.container}>
