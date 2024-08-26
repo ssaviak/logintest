@@ -1,6 +1,6 @@
 import { SafeAreaView, StyleSheet } from "react-native";
 import { useFonts } from "expo-font";
-import AppNavigator from "@/navigation/AppNavigator";
+import { AppNavigator } from "@/components";
 
 export default function App() {
   const [fontsLoaded] = useFonts({

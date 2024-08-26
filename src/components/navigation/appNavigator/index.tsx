@@ -1,14 +1,16 @@
 import React from "react";
 import { createStackNavigator } from "@react-navigation/stack";
 import { NavigationContainer } from "@react-navigation/native";
-import WelcomeScreen from "@/screens/welcomeScreen/WelcomeScreen";
-import LoginScreen from "@/screens/loginScreen/LoginScreen";
-import VerificationScreen from "@/screens/verificationScreen/VerificationScreen";
-import RegisterScreen from "@/screens/registerScreen/RegisterScreen";
+import {
+  LoginScreen,
+  RegisterScreen,
+  VerificationScreen,
+  WelcomeScreen,
+} from "@/screens";
 
 const Stack = createStackNavigator();
 
-const AppNavigator = () => {
+export const AppNavigator = () => {
   return (
     <NavigationContainer>
       <Stack.Navigator initialRouteName="Welcome">
@@ -44,5 +46,3 @@ const AppNavigator = () => {
     </NavigationContainer>
   );
 };
-
-export default AppNavigator;

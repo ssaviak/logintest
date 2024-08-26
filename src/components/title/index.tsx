@@ -1,20 +1,18 @@
-import { COLORS } from "@/constants/Colors";
+import { COLORS } from "@/constants/colors";
 import { View, Text, StyleSheet } from "react-native";
 
-export const LoginTitle = ({
+export const Title = ({
   title,
   description,
-  isLogin = false,
+  isGrey = false,
 }: {
   title?: string;
   description: string;
-  isLogin?: boolean;
+  isGrey?: boolean;
 }) => {
   return (
     <View style={styles.container}>
-      <Text style={[styles.title, isLogin && styles.loginTitle]}>
-        {title || "Welcome to App"}
-      </Text>
+      <Text style={[styles.title, isGrey && styles.loginTitle]}>{title}</Text>
       <Text style={styles.description}>{description}</Text>
     </View>
   );

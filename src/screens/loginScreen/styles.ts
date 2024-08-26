@@ -1,37 +1,5 @@
-import { COLORS } from "@/constants/Colors";
-import { FC } from "react";
-import { View, Text, TextInput } from "react-native";
-
-interface InputProps {
-  touched: any;
-  errors: any;
-  handleChange: any;
-  value: any;
-}
-
-export const Input: FC<InputProps> = ({
-  touched,
-  errors,
-  handleChange,
-  value,
-}) => {
-  return (
-    <View style={styles.inputContainer}>
-      <Text style={styles.label}>Phone number</Text>
-      <TextInput
-        style={styles.input}
-        placeholder="+33 222 111 2222"
-        onChangeText={handleChange("phoneNumber")}
-        onBlur={handleBlur("phoneNumber")}
-        value={values.phoneNumber}
-        keyboardType="phone-pad"
-      />
-      {touched.phoneNumber && errors.phoneNumber && (
-        <Text style={styles.errorText}>{errors.phoneNumber}</Text>
-      )}
-    </View>
-  );
-};
+import { StyleSheet } from "react-native";
+import { COLORS } from "@/constants/colors";
 
 const styles = StyleSheet.create({
   container: {
@@ -70,10 +38,7 @@ const styles = StyleSheet.create({
     marginBottom: 10,
   },
   button: {
-    backgroundColor: "#2563eb",
-    padding: 15,
-    borderRadius: 8,
-    alignItems: "center",
+    marginTop: 24,
   },
   buttonText: {
     color: "#fff",
@@ -96,3 +61,5 @@ const styles = StyleSheet.create({
     color: COLORS.secondaryTorquoise,
   },
 });
+
+export default styles;

@@ -2,16 +2,15 @@ import React from "react";
 import { View, Text, TouchableOpacity, TextInput } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { Formik } from "formik";
-import { LoginTitle } from "@/components/loginTitle/LoginTitle";
-import { Button } from "@/components/button/Button";
-import { RegisterScreenNavigationProp } from "@/types/Navigation";
-import { loginUser } from "@/api/api";
+import { loginUser } from "@/api";
+import { phoneNumberSchema } from "@/constants";
+import { Button, Title } from "@/components";
+import { LoginScreenNavigationProp } from "./types";
 
-import styles from "./LoginScreen.styles";
-import { phoneNumberSchema } from "@/constants/Schemas";
+import styles from "./styles";
 
-const LoginScreen = () => {
-  const navigation = useNavigation<RegisterScreenNavigationProp>();
+export const LoginScreen = () => {
+  const navigation = useNavigation<LoginScreenNavigationProp>();
 
   const handleLogin = async (values: { phoneNumber: string }) => {
     try {
@@ -28,7 +27,7 @@ const LoginScreen = () => {
 
   return (
     <View style={styles.container}>
-      <LoginTitle description="Please enter your details." />
+      <Title description="Please enter your details." title="Welcome to App" />
       <Formik
         initialValues={{ phoneNumber: "" }}
         validationSchema={phoneNumberSchema}
@@ -88,5 +87,3 @@ const LoginScreen = () => {
     </View>
   );
 };
-
-export default LoginScreen;

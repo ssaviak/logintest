@@ -1,17 +1,17 @@
 import React from "react";
 import { View, Text, TextInput, TouchableOpacity } from "react-native";
 import { Formik } from "formik";
-import { LoginTitle } from "@/components/loginTitle/LoginTitle";
 import { useNavigation } from "@react-navigation/native";
-import { RegisterScreenNavigationProp } from "@/types/Navigation";
-import { Button } from "@/components/button/Button";
 
-import { registerUser } from "@/api/api";
+import { registerUser } from "@/api";
 
-import styles from "./RegisterScreen.styles";
-import { nameSchema } from "@/constants/Schemas";
+import { nameSchema } from "@/constants";
+import { Button, Title } from "@/components";
+import { RegisterScreenNavigationProp } from "./types";
 
-const RegisterScreen = () => {
+import styles from "./styles";
+
+export const RegisterScreen = () => {
   const navigation = useNavigation<RegisterScreenNavigationProp>();
 
   const handleRegister = async (values: {
@@ -52,7 +52,10 @@ const RegisterScreen = () => {
           touched,
         }) => (
           <View>
-            <LoginTitle description="Please enter your details." />
+            <Title
+              description="Please enter your details."
+              title="Welcome to App"
+            />
 
             <View style={styles.inputContainer}>
               <Text style={styles.label}>Name</Text>
@@ -135,5 +138,3 @@ const RegisterScreen = () => {
     </View>
   );
 };
-
-export default RegisterScreen;

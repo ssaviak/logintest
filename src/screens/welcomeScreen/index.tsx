@@ -1,9 +1,9 @@
-import { Button } from "@/components/button/Button";
-import { COLORS } from "@/constants/Colors";
-import { useNavigation } from "@react-navigation/native";
 import { View, Text, Image, StyleSheet } from "react-native";
+import { useNavigation } from "@react-navigation/native";
+import { COLORS } from "@/constants/colors";
+import { Button } from "@/components";
 
-const WelcomeScreen = () => {
+export const WelcomeScreen = () => {
   const navigation = useNavigation();
 
   return (
@@ -67,5 +67,3 @@ const styles = StyleSheet.create({
     gap: 8,
   },
 });
-
-export default WelcomeScreen;

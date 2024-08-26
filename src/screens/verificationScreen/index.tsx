@@ -6,23 +6,13 @@ import {
   useBlurOnFulfill,
   useClearByFocusCell,
 } from "react-native-confirmation-code-field";
-import { verifyUser } from "@/api/api";
-import { Button } from "@/components/button/Button";
-import { LoginTitle } from "@/components/loginTitle/LoginTitle";
+import { verifyUser } from "@/api";
+import { Button, Title } from "@/components";
+import { VerificationScreenProps } from "./types";
 
-import styles from "./VerificationScreen.styles";
+import styles from "./styles";
 
-interface VerificationScreenProps {
-  route: {
-    params: {
-      phoneNumber: string;
-      type: "login" | "register";
-    };
-  };
-  navigation: any;
-}
-
-const VerificationScreen: React.FC<VerificationScreenProps> = ({
+export const VerificationScreen: React.FC<VerificationScreenProps> = ({
   route,
   navigation,
 }) => {
@@ -59,7 +49,10 @@ const VerificationScreen: React.FC<VerificationScreenProps> = ({
 
   return (
     <View style={styles.container}>
-      <LoginTitle description="Enter the confirmation code that will be sent to you by SMS" />
+      <Title
+        description="Enter the confirmation code that will be sent to you by SMS"
+        title="Welcome to App"
+      />
 
       <View style={styles.content}>
         <View style={styles.codeContainer}>
@@ -106,5 +99,3 @@ const VerificationScreen: React.FC<VerificationScreenProps> = ({
     </View>
   );
 };
-
-export default VerificationScreen;

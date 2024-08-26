@@ -1,30 +1,33 @@
+import { COLORS } from "@/constants/colors";
 import { StyleSheet } from "react-native";
-import { COLORS } from "@/constants/Colors";
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    paddingTop: 120.21,
-    paddingHorizontal: 16,
-    backgroundColor: COLORS.white,
+    padding: 20,
+    gap: 40,
+    paddingTop: 120.42,
+    backgroundColor: "#fff",
   },
-  content: {
-    marginTop: 40,
+  title: {
+    fontSize: 24,
+    fontWeight: "bold",
+    marginBottom: 10,
+  },
+  subtitle: {
+    fontSize: 16,
+    color: "#6b7280",
+    marginBottom: 20,
   },
   inputContainer: {
     gap: 8,
   },
   input: {
-    borderColor: COLORS.lightGrey,
     borderWidth: 1,
+    borderColor: "#d1d5db",
     borderRadius: 8,
-    paddingVertical: 10,
-    paddingHorizontal: 14,
-  },
-  hint: {
-    fontSize: 12,
-    color: "#9ca3af",
-    marginBottom: 20,
+    padding: 10,
+    marginBottom: 10,
   },
   label: {
     fontFamily: "Inter",
@@ -32,33 +35,35 @@ const styles = StyleSheet.create({
     fontWeight: "500",
     color: COLORS.darkGrey,
   },
+  hint: {
+    fontSize: 12,
+    color: "#9ca3af",
+    marginBottom: 20,
+  },
   errorText: {
     color: "red",
     fontSize: 12,
     marginBottom: 10,
   },
-  button: {
-    marginTop: 24,
-  },
+
   buttonText: {
     color: "#fff",
     fontSize: 16,
     fontWeight: "bold",
   },
   footer: {
-    marginTop: 40,
     flexDirection: "row",
     justifyContent: "center",
+    marginTop: 20,
   },
   footerText: {
     fontSize: 14,
     color: "#6b7280",
   },
   footerLink: {
-    marginLeft: 4,
     fontSize: 14,
-    lineHeight: 20,
     color: COLORS.secondaryTorquoise,
+    marginLeft: 5,
   },
 });
 
