@@ -17,13 +17,22 @@ export const VerificationScreen: React.FC<VerificationScreenProps> = ({
   navigation,
 }) => {
   const { phoneNumber, type } = route.params;
-  const CELL_COUNT = 6;
+  const CELL_COUNT = 7;
   const [value, setValue] = useState("");
   const ref = useBlurOnFulfill({ value, cellCount: CELL_COUNT });
   const [props, getCellOnLayoutHandler] = useClearByFocusCell({
     value,
     setValue,
   });
+
+  const onHandleChangeText = (text: string) => {
+    // Add a dash after the third character, and handle backspace
+    if (text.length === 3 && value.length === 2) {
+      setValue(text + "-");
+    } else {
+      setValue(text);
+    }
+  };
 
   const handleVerification = async () => {
     try {
@@ -61,21 +70,27 @@ export const VerificationScreen: React.FC<VerificationScreenProps> = ({
             ref={ref}
             {...props}
             value={value}
-            onChangeText={setValue}
+            onChangeText={onHandleChangeText}
             cellCount={CELL_COUNT}
             rootStyle={styles.codeFieldRoot}
             keyboardType="number-pad"
             textContentType="oneTimeCode"
             testID="my-code-input"
-            renderCell={({ index, symbol, isFocused }) => (
-              <Text
-                key={index}
-                style={[styles.cell, isFocused && styles.focusCell]}
-                onLayout={getCellOnLayoutHandler(index)}
-              >
-                {symbol || (isFocused ? <Cursor /> : null)}
-              </Text>
-            )}
+            renderCell={({ index, symbol, isFocused }) =>
+              index === 3 ? (
+                <View style={styles.dividerContainer}>
+                  <Text style={styles.divider}>-</Text>
+                </View>
+              ) : (
+                <Text
+                  key={index}
+                  style={[styles.cell, isFocused && styles.focusCell]}
+                  onLayout={getCellOnLayoutHandler(index)}
+                >
+                  {symbol || (isFocused ? <Cursor /> : null)}
+                </Text>
+              )
+            }
           />
         </View>
 

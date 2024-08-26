@@ -40,6 +40,17 @@ const styles = StyleSheet.create({
     color: COLORS.secondaryTorquoise,
     textDecorationLine: "underline",
   },
+  dividerContainer: {
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  divider: {
+    fontSize: 40,
+    lineHeight: 48,
+    fontWeight: "600",
+    color: COLORS.lightGrey,
+    textAlign: "center",
+  },
 });
 
 export default styles;
