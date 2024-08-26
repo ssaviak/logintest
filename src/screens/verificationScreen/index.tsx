@@ -8,16 +8,21 @@ import {
 } from "react-native-confirmation-code-field";
 import { verifyUser } from "@/api";
 import { Button, Title } from "@/components";
-import { VerificationScreenProps } from "./types";
+import {
+  VerificationScreenNavigationProps,
+  VerificationScreenRouteProp,
+} from "./types";
 
 import styles from "./styles";
+import { useNavigation, useRoute } from "@react-navigation/native";
 
-export const VerificationScreen: React.FC<VerificationScreenProps> = ({
-  route,
-  navigation,
-}) => {
+const CELL_COUNT = 7;
+
+export const VerificationScreen = () => {
+  const route = useRoute<VerificationScreenRouteProp>();
+  const navigation = useNavigation<VerificationScreenNavigationProps>();
+
   const { phoneNumber, type } = route.params;
-  const CELL_COUNT = 7;
   const [value, setValue] = useState("");
   const ref = useBlurOnFulfill({ value, cellCount: CELL_COUNT });
   const [props, getCellOnLayoutHandler] = useClearByFocusCell({
@@ -71,7 +76,7 @@ export const VerificationScreen: React.FC<VerificationScreenProps> = ({
             testID="my-code-input"
             renderCell={({ index, symbol, isFocused }) =>
               index === 3 ? (
-                <View style={styles.dividerContainer}>
+                <View style={styles.dividerContainer} key={index}>
                   <Text style={styles.divider}>-</Text>
                 </View>
               ) : (
