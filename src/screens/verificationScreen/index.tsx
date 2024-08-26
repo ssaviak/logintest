@@ -26,25 +26,18 @@ export const VerificationScreen: React.FC<VerificationScreenProps> = ({
   });
 
   const onHandleChangeText = (text: string) => {
-    // Add a dash after the third character, and handle backspace
-    if (text.length === 3 && value.length === 2) {
-      setValue(text + "-");
-    } else {
-      setValue(text);
-    }
+    setValue(text.length === 3 && value.length === 2 ? `${text}-` : text);
   };
 
   const handleVerification = async () => {
     try {
       const response = await verifyUser(phoneNumber, value);
-
-      if (type === "login") {
-        console.log("Login process completed");
-      } else {
-        console.log("Registration process completed");
-      }
+      console.log(
+        type === "login"
+          ? "Login process completed"
+          : "Registration process completed"
+      );
       setValue("");
-
       Alert.alert("Verification successful", "You can now login");
       navigation.navigate("Login");
     } catch (error) {

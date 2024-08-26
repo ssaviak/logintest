@@ -93,14 +93,11 @@ export const RegisterScreen = () => {
                 style={styles.input}
                 placeholder="+33 222 111 2222"
                 onChangeText={(text) => {
-                  if (
-                    !text.startsWith("+") &&
-                    values.phoneNumber.length === 0
-                  ) {
-                    handleChange("phoneNumber")(`+${text}`);
-                  } else {
-                    handleChange("phoneNumber")(text);
-                  }
+                  handleChange("phoneNumber")(
+                    !text.startsWith("+") && values.phoneNumber.length === 0
+                      ? `+${text}`
+                      : text
+                  );
                 }}
                 onBlur={handleBlur("phoneNumber")}
                 value={values.phoneNumber}
