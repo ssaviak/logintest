@@ -1,15 +1,15 @@
 import React from "react";
 import { View, Text, TextInput, TouchableOpacity } from "react-native";
 import { Formik } from "formik";
-import { LoginTitle } from "@/components/UI/loginTitle/LoginTitle";
+import { LoginTitle } from "@/components/loginTitle/LoginTitle";
 import { useNavigation } from "@react-navigation/native";
 import { RegisterScreenNavigationProp } from "@/types/Navigation";
-import { Button } from "@/components/UI/button/Button";
+import { Button } from "@/components/button/Button";
 
 import { registerUser } from "@/api/api";
 
 import styles from "./RegisterScreen.styles";
-import { nameSchema } from "@/validation/validationSchemas";
+import { nameSchema } from "@/constants/Schemas";
 
 const RegisterScreen = () => {
   const navigation = useNavigation<RegisterScreenNavigationProp>();

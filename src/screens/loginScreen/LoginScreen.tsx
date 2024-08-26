@@ -2,13 +2,13 @@ import React from "react";
 import { View, Text, TouchableOpacity, TextInput } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { Formik } from "formik";
-import { LoginTitle } from "@/components/UI/loginTitle/LoginTitle";
-import { Button } from "@/components/UI/button/Button";
+import { LoginTitle } from "@/components/loginTitle/LoginTitle";
+import { Button } from "@/components/button/Button";
 import { RegisterScreenNavigationProp } from "@/types/Navigation";
 import { loginUser } from "@/api/api";
-import { phoneNumberSchema } from "@/validation/validationSchemas";
 
 import styles from "./LoginScreen.styles";
+import { phoneNumberSchema } from "@/constants/Schemas";
 
 const LoginScreen = () => {
   const navigation = useNavigation<RegisterScreenNavigationProp>();

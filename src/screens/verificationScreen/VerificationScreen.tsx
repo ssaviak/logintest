@@ -7,8 +7,8 @@ import {
   useClearByFocusCell,
 } from "react-native-confirmation-code-field";
 import { verifyUser } from "@/api/api";
-import { Button } from "@/components/UI/button/Button";
-import { LoginTitle } from "@/components/UI/loginTitle/LoginTitle";
+import { Button } from "@/components/button/Button";
+import { LoginTitle } from "@/components/loginTitle/LoginTitle";
 
 import styles from "./VerificationScreen.styles";
 
